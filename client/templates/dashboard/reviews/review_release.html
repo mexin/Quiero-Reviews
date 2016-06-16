@@ -1,0 +1,82 @@
+<template name="reviewRelease">
+    {{> menu}}
+    <div id="main-cont" class="ui padded stacked grid">
+        <div class="ui centered column stackable grid">
+            <div class="ten wide padded column">
+                <div class="ui segment">
+                    <h1 class="ui header">Reviews</h1>
+                    <div class="ui divided items">
+                        {{#each reviews}}
+                            <div class="item">
+                                <i class="user centered big icon"></i>
+                                <div class="content">
+                                    <div class="header">
+                                        {{user.profile.artistName}}
+                                        <span class="ui huge star rating averageRating"
+                                              data-rating="{{rating}}" data-max-rating="5"></span>
+                                    </div>
+                                    <div class="meta">
+                                        <span class="stay">{{user.profile.name}}</span> /
+                                        <span>{{user.profile.artistType}}</span>
+                                        <p>{{user.profile.country}}</p>
+                                        <div class="ui labels">
+                                            <div class="ui label">
+                                                <a href="{{user.profile.soundcloudUrl}}" target="_blank">
+                                                    <i class="ui linkify icon"></i>
+                                                    Soundcloud Url
+                                                </a>
+                                            </div>
+                                            <div class="ui label">
+                                                <a class="label" href="{{user.profile.raUrl}}" target="_blank">
+                                                    <i class="ui linkify icon"></i>
+                                                    Resident Advisor Url
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="description">
+                                        <h3 class="ui header">
+                                            <i class="comment outline big icon"></i>
+                                            <div class="content">
+                                                {{review}}
+                                            </div>
+                                        </h3>
+                                    </div>
+                                    <div class="extra">
+                                        {{review.downloaded}}
+                                    </div>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div class="five wide column">
+                <div class="ui segments">
+                    <div class="ui center aligned segment">
+                        <div class="ui large image">
+                            <img src="{{featured_image.source}}" alt="">
+                        </div>
+
+                    </div>
+                    <div class="ui center aligned segment">
+                        <h2 class="ui header">{{#markdown}} {{title}} {{/markdown}}</h2>
+                        <span class="ui massive star rating averageRating"
+                             data-rating="{{average}}" data-max-rating="5"></span>
+                    </div>
+                    <div class="ui center aligned segment">
+                        <div class="ui large label">
+                            <i class="star icon"></i> {{average}} Average
+                        </div>
+                        <div class="ui large label">
+                            <i class="write icon"></i> {{stats.reviews}} Reviews
+                        </div>
+                        <div class="ui large label">
+                            <i class="download icon"></i> {{stats.downloads}} Downloads
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

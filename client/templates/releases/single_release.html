@@ -1,0 +1,91 @@
+<Template name='singleRelease'>
+    {{> menu}}
+    {{> sAlert}}
+    <div class="ui stacked padded grid">
+        <div class="ui vertical center aligned padded page grid">
+            <div class="ui container release-top-img">
+                <img class="ui medium circular centered image" src="{{featured_image.source}}" alt="">
+            </div>
+            <div id="title-slug" class="ui text center aligned container" data="{{slug}}">
+                <h1 class="ui header">
+                    {{#markdown}} {{title}} {{/markdown}}
+                </h1>
+            </div>
+        </div>
+        <div class="ui stackable centered padded page grid">
+            <div class="ui seven wide column">
+                <div class="ui center segment">
+                    <div class="ui">
+                        {{#markdown}} {{acf.music_player}} {{/markdown}}
+                    </div>
+                </div>
+            </div>
+            <div class="ui nine wide column">
+                <div class="ui stacked segments">
+                    <div class="ui segment">
+                        <h3 class="ui header">Artists</h3>
+                        <div class="ui labels">
+                            {{#each acf.artista}}
+                                <div class="ui black label">{{ post_title }} </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                    <div class="ui segment">
+                        <h3 class="ui header">Description</h3>
+                        <p>
+                            {{#markdown}} {{content}} {{/markdown}}
+                        </p>
+                    </div>
+                    <div class="ui right aligned segment">
+                        <div class="ui small labels">
+                            {{#each terms.post_tag}}
+                                <div class="ui label">{{ name }} </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui eight wide row">
+                <div class="ui center aligned column">
+                    {{#if isReviewAlready}}
+                        <div class="ui ten wide column">
+                            <div class="ui stacked segments">
+                                <div class="ui segment">
+                                    <h3 class="ui header">You Rated It</h3>
+                                    <div id="savedRating" class="ui massive star rating"
+                                         data-rating="{{isReviewAlready.rating}}" data-max-rating="5"></div>
+                                </div>
+                                <div class="ui segment">
+                                    <h3 class="ui header">Your Review</h3>
+                                    <p>
+                                        {{isReviewAlready.review}}
+                                    </p>
+                                </div>
+                                <div class="ui segment">
+                                    <h3 class="ui header">Download Link</h3>
+                                    <p>We will truly appreciate if you could chart us on your RA account. Thank you! We
+                                        hope you enjoy it! </p>
+                                    {{#if download}}
+                                        <a id="downloadLink" href="{{download.downloadUrl}}" target="_blank"
+                                           class="ui big green button">320kbps Release</a>
+                                    {{else}}
+                                        <h4>We haven't created a download link, please come back to get your download.
+                                            Thank you!</h4>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                    {{else}}
+                        <a id="openReview" href="" class="ui massive green button btn-pop">Review Release</a>
+
+                    {{/if}}
+                </div>
+            </div>
+            <div class="row">
+
+            </div>
+        </div>
+    </div>
+
+    {{> modalReview}}
+</Template>

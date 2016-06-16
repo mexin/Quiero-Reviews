@@ -1,0 +1,48 @@
+<template name="menu">
+    <div class="ui menu fixed">
+        <div class="header item">
+            <a id="about" class="ui black" href="">Quiero Reviews</a>
+            </div>
+        {{#if isInRole 'admin'}}
+            <a class="item" href="/dashboard">
+                <i class="rocket icon"></i>
+                Dashboard
+            </a>
+            <a class="item" href="/downloads">
+                <i class="cloud download icon"></i>
+                Downloads
+            </a>
+            <a class="item" href="/users">
+                <i class="users icon"></i>
+                Users
+            </a>
+        {{else}}
+            <a class="item" href="/">
+                <i class="grid layout icon"></i>
+                All Releases
+            </a>
+        {{/if}}
+
+        <div class="right menu">
+            {{#if currentUser}}
+                <div class="item">
+                    <i class="user icon"></i>
+                    Hey! {{currentUser.profile.artistName}}
+                </div>
+                <a href="" class="item logout">
+                    <i class="sign out icon"></i>
+                    Logout
+                </a>
+            {{else}}
+                <div class="ui dropdown item">
+                    <i class="user icon"></i><i class="dropdown icon"></i>
+                    <div class="menu">
+                        <div class="item borderless">
+                            {{> accountLogin}}
+                        </div>
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</template>

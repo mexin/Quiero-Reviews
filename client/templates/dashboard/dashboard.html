@@ -1,0 +1,86 @@
+<template name="dashboard">
+    {{> menu}}
+    {{> sAlert}}
+    <div id="main-cont" class="ui padded stacked grid">
+        <div class="ui centered column stackable grid">
+            <div class="nine wide padded column">
+                <div class="ui segment">
+                    <h1 class="ui header">Releases Info</h1>
+                    <div class="ui three doubling stackable cards">
+                        {{#each releases}}
+                            <div class="ui fluid link card">
+                                <a class="image" href="/reviews/{{slug}}">
+                                    <img src="{{featured_image.source}}" alt="">
+                                </a>
+                                <div class="content">
+                                    <a class="header" href="/reviews/{{slug}}">
+                                        {{#markdown}} {{title}} {{/markdown}}
+                                    </a>
+
+                                    <div class="meta">
+                                        <p></p>
+                                        <div class="ui massive star rating averageRating"
+                                             data-rating="{{average}}" data-max-rating="5"></div>
+                                    </div>
+                                    <div class="description">
+                                        {{#if reviewStats}}
+                                            <div class="ui large label">
+                                                <i class="star icon"></i> {{average}}
+                                            </div>
+                                            <div class="ui large label">
+                                                <i class="write icon"></i> {{reviewStats.reviews}}
+                                            </div>
+                                            <div class="ui large label">
+                                                <i class="download icon"></i> {{reviewStats.downloads}}
+                                            </div>
+                                        {{/if}}
+                                    </div>
+                                </div>
+                                <div class="extra content">
+
+                                </div>
+                                <a class="ui bottom attached button" href="/reviews/{{slug}}">
+                                    <i class="add icon"></i>
+                                    View Details
+                                </a>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div class="six wide column">
+                <div class="ui segments">
+                    <div class="ui segment">
+                        <h3 class="ui header">Recent Registered</h3>
+                        <div class="ui three stackable cards">
+                            {{#each recentRegistered}}
+                                <div class="card">
+                                    <div class="content">
+                                        <div class="header">
+                                            <i class="user icon"></i>
+                                            {{profile.artistName}}
+                                        </div>
+                                        <div class="description">
+                                            <p>{{profile.name}}</p>
+                                            <p>{{profile.country}}</p>
+                                            <div class="ui tiny label"><i class="clock icon"></i> {{recentCreatedAt}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="ui bottom attached button">
+                                        <i class="add icon"></i>
+                                        View
+                                    </a>
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                    <div class="ui segment">
+                        <h3 class="ui header">Top Reviews</h3>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

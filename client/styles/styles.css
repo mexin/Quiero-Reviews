@@ -1,0 +1,20 @@
+body {
+    background: url("images/background/5.jpg") center;
+}
+
+.loadload {
+    padding-top: 45vh;
+}
+
+.masthead.segment {
+    min-height: 100%;
+    padding: 1em 0em;
+}
+
+.release-top-img {
+    margin: 20px 0;
+}
+
+a {
+    color: #000;
+}

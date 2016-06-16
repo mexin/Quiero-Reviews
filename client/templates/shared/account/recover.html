@@ -1,0 +1,31 @@
+<template name="accountRecover">
+    {{> menu}}
+    <div class="ui stackable centered padded page grid">
+        <div class="ui eight wide column">
+            <div class="ui center aligned segment">
+                <div class="ui small image">
+                    <img src="http://www.quiero-recordings.com/images/quierorecslogoblack.png">
+                </div>
+
+                <div class="ui eight padded column">
+                    <h1>Forgot Password</h1>
+                    <h4>You will received an email with a reset link. Please check your spam folder.</h4>
+                    <form class="ui large form">
+                        <div class="ui stacked segment">
+                            <div class="field">
+                                <div class="ui left icon input">
+                                    <i class="user icon"></i>
+                                    <input type="text" name="emailRecover" placeholder="E-mail address">
+                                </div>
+                            </div>
+                            <input type="submit" class="ui fluid large black submit button" value="Send Reset Link">
+                        </div>
+                        <div class="ui error message">
+                            {{error}}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

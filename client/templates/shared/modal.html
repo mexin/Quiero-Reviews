@@ -1,0 +1,46 @@
+<template name="modalReview">
+    <div class="ui modal">
+
+        <i class="close icon"></i>
+        {{#if currentUser}}
+                <div class="header">
+                    Review
+                </div>
+                <div class="content">
+                    <div class="description">
+                        <div class="ui header">Thanks for reviewing, we will give you a download link as soon as you
+                            complete the review.
+                        </div>
+                        <div class="ui form">
+                            <div class="field">
+                                <label>Rating</label>
+                                <div id="getRating" class="ui massive star rating" data-rating="0" data-max-rating="5"></div>
+                            </div>
+                        </div>
+                        <div class="ui form">
+                            <div class="field">
+                                <label>Please tell us what you think</label>
+                                <textarea id="reviewComment"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <div class="ui black deny button">
+                        Nope
+                    </div>
+                    <div id="submitReview" class="ui positive right labeled icon button">
+                        Send Review
+                        <i class="checkmark icon"></i>
+                    </div>
+                </div>
+        {{else}}
+            <div class="header">
+               Please Log In
+            </div>
+        <div class="content">
+            {{> accountLogin}}
+        </div>
+        {{/if}}
+    </div>
+</template>

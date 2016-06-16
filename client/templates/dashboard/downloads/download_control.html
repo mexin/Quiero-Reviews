@@ -1,0 +1,86 @@
+<template name="downloadControl">
+    {{> sAlert}}
+    {{> menu}}
+    <div id="main-cont" class="ui padded stacked grid">
+        <div class="ui centered column stackable grid">
+            <div class="nine wide padded column">
+                <div class="ui segment">
+                    <h1 class="ui header">Created Downloads</h1>
+                    <div class="ui middle aligned divided list">
+                        {{#each release}}
+                            {{#each downloads}}
+                                <div class="item">
+                                    <div class="right floated content">
+                                        <button id="deleteDownload" class="ui tiny red button">
+                                            <i class="trash icon"></i>
+                                            Delete
+                                        </button>
+                                    </div>
+                                    <i class="large download middle aligned icon"></i>
+                                    <div class="content">
+                                        <a class="header" data="{{_id}}">
+                                            {{#markdown}} {{../title}} {{/markdown}}
+                                        </a>
+                                        <div class="description">
+                                            {{downloadUrl}}
+                                        </div>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div class="six wide column">
+                <div class="ui segments">
+                    <div class="ui segment">
+                        <h3 class="ui header">Actions</h3>
+                        <button id="createDownload" class="ui positive left labeled icon button">
+                            <i class="plus icon"></i>
+                            Create
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">
+            New Download Link
+        </div>
+        <div class="content">
+            <div class="description">
+                <form id="downloadForm" class="ui form">
+                    <div class="field">
+                        <label>Which Release?</label>
+                        <div class="ui fluid search selection dropdown">
+                            <input type="hidden" name="release">
+                            <i class="dropdown icon"></i>
+                            <div class="default text">Release Name</div>
+                            <div class="menu">
+                                {{#each release}}
+                                    <div class="item" data-value="{{slug}}">{{#markdown}} {{title}} {{/markdown}}</div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Download Url</label>
+                        <input type="text" name="downloadUrl"
+                               placeholder="Download URL Ex. http://www.site.com/download.zip">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+                Nope
+            </div>
+            <div id="submitDownload" class="ui positive right labeled icon button">
+                Save
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,45 @@
+<template name="usersPanel">
+    {{> menu}}
+    <div id="main-cont" class="ui padded stacked grid">
+        <div class="ui centered column stackable grid">
+            <div class="sixteen page padded column">
+                <div class="ui segment">
+                    <h1 class="ui header">Users</h1>
+                    <div class="ui six stackable cards">
+                        {{#each users}}
+                            <div class="card">
+                                <div class="content">
+                                    <div class="header">
+                                        <i class="user icon"></i>
+                                        {{profile.artistName}}
+                                    </div>
+                                    <div class="description">
+                                        <p>{{profile.name}}</p>
+                                        <p>{{email}}</p>
+                                        <p>{{profile.country}}</p>
+                                        <div class="ui labels">
+                                            <div class="ui label">
+                                                <a href="{{user.profile.soundcloudUrl}}" target="_blank">
+                                                    <i class="ui linkify icon"></i>
+                                                    Soundcloud Url
+                                                </a>
+                                            </div>
+                                            <div class="ui label">
+                                                <a class="label" href="{{user.profile.raUrl}}" target="_blank">
+                                                    <i class="ui linkify icon"></i>
+                                                    Resident Advisor Url
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="ui tiny label"><i class="clock icon"></i> {{recentCreatedAt}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

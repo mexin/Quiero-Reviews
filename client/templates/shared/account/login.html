@@ -1,0 +1,38 @@
+<template name="accountLogin">
+    <div class="ui middle aligned center aligned padded grid">
+        <div class="center aligned column">
+            <div class="ui image header">
+                <img src="http://www.quiero-recordings.com/images/quierorecslogoblack.png" class="image">
+                <h3 class="header">
+                    Quiero Reviews
+                </h3>
+            </div>
+            <form class="ui large form {{#if loginLoading}}loading{{/if}}">
+                <div class="ui stacked segment">
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" name="email" placeholder="E-mail address">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i>
+                            <input type="password" name="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <input type="submit" class="ui fluid large black submit button" value="Login">
+                </div>
+                <div class="ui error message">
+                    {{error}}
+                </div>
+            </form>
+            <div class="ui message">
+                Don't have an Account? <a class="deny" href="/sign-up">Sign Up</a>
+            </div>
+            <div class="ui message">
+                 <a class="deny" href="/forgot-password">Forgot your password?</a>
+            </div>
+        </div>
+    </div>
+</template>

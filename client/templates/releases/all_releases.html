@@ -1,0 +1,36 @@
+<template name="allReleases">
+    <div class="ui ui fourteen wide centered column">
+        <div class="ui four doubling stackable cards">
+            {{#each releases}}
+                <div class="ui fluid link card">
+                    <a class="image" href="/releases/{{slug}}">
+                        <img src="{{featured_image.source}}" alt="">
+                    </a>
+                    <div class="content">
+                        <a class="header" href="/releases/{{slug}}">
+                            {{#markdown}} {{title}} {{/markdown}}
+                        </a>
+
+                        <div class="meta">
+                            {{#each acf.artista}}
+                                {{post_title}},
+                            {{/each}}
+                        </div>
+                        <div class="description">
+                            <p>{{#markdown}} {{excerpt}} {{/markdown}}</p>
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <div class="ui tiny labels">
+                            {{#each terms.post_tag}}
+                                <div class="ui label">
+                                    {{name}}
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</template>
